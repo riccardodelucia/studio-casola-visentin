@@ -22,12 +22,8 @@ import Header from "../components/Header.astro";
     @import "open-props/postcss/style";
     @import "open-props/postcss/normalize";
 
-    * {
-      --max-width: 10rem;
-    }
-
-    .container {
-      width: min(var(--max-width), 100%-2em);
+    .sized-container {
+      width: min(80rem, 100% - 2em);
       margin-inline: auto;
     }
   </style>

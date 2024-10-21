@@ -3,7 +3,7 @@
 ---
 
 <header>
-  <div class="container header-container">
+  <div class="sized-container header-container">
     <span class="header-logo">Studio Casola Visentin</span>
     <nav>
       <ul class="header-links">
@@ -23,8 +23,6 @@
   }
 
   header {
-    padding-inline: var(--size-5);
-    padding-block: var(--size-2);
     color: var(--gray-10);
     position: sticky;
     top: 0;
@@ -33,6 +31,7 @@
 
   .header-container {
     height: 100%;
+    padding-block: var(--size-2);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
