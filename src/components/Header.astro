@@ -2,14 +2,83 @@
 
 ---
 
-<header class="top-header">test</header>
+<header>
+  <div class="container header-container">
+    <span class="header-logo">Studio Casola Visentin</span>
+    <nav>
+      <ul class="header-links">
+        <li><a class="header-link" href="#">Chi Siamo</a></li>
+        <li><a class="header-link" href="#">Servizi</a></li>
+        <li><a class="header-link" href="#">Dove Trovarci</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="contact-link">Contattaci</a>
+  </div>
+</header>
 
 <style>
-  .top-header {
-    display: flex;
-    height: 5rem;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  header {
     padding-inline: var(--size-5);
-    background-color: blue;
+    padding-block: var(--size-2);
+    color: var(--gray-10);
+    position: sticky;
+    top: 0;
+    background-color: white;
+  }
+
+  .header-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: var(--size-5);
+  }
+
+  .header-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin-inline: auto;
+    width: fit-content;
+    gap: var(--size-8);
+    color: var(--gray-8);
+  }
+
+  .header-link {
+    --underline: 1px solid;
+    color: inherit;
+    display: block;
+    padding: 0.1em;
+    border-bottom: var(--underline) transparent;
+    transition: border-color 200ms ease-in;
+  }
+
+  .header-link:hover {
+    border-bottom: var(--underline) var(--orange-7);
+  }
+
+  .header-logo {
+    font-weight: 600;
+    margin-right: auto;
+  }
+
+  .contact-link {
+    justify-self: end;
+    display: block;
+    padding-block: 1em;
+    padding-inline: 2em;
+    background-color: var(--orange-7);
+    border-radius: var(--radius-5);
     color: white;
+    transition: background-color 200ms ease-in;
+  }
+  .contact-link:hover,
+  .contact-link:focus {
+    background-color: var(--orange-10);
   }
 </style>
