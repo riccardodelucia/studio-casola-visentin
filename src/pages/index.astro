@@ -1,34 +1,127 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+import heroImg from "../assets/images/hero.jpg";
+
 import Card from "../components/Card.astro";
 ---
 
 <Layout title="Sudio Casola Visentin">
   <main>
-    <h1>Studio Casola Visentin</h1>
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-    </ul>
+    <section id="hero" class="sized-container hero">
+      <div class="hero-text">
+        <h1>Studio <span>Casola Visentin</span></h1>
+        <p class="hero-intro">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+          consequatur incidunt laboriosam modi impedit unde a dolorum, officiis
+          similique eos est molestias aspernatur dignissimos facere! Cumque
+          ratione a nihil iusto!
+        </p>
+      </div>
+      <Image class="hero-image" src={heroImg} alt="Entrata" />
+    </section>
+    <section id="services" class="section-container section-color">
+      <h2>Servizi</h2>
+      <div class="cards-container">
+        <Card title="Lorem" body="Lorem ipsum dolor sit" />
+        <Card title="Lorem" body="Lorem ipsum dolor sit" />
+        <Card title="Lorem" body="Lorem ipsum dolor sit" />
+      </div>
+    </section>
+    <section class="section-container">
+      <h2>Dove Siamo</h2>
+    </section>
   </main>
 </Layout>
 
-<style></style>
+<style>
+  * {
+    --section-margin-top: var(--size-10);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--size-5);
+  }
+
+  h1 > span {
+    background-image: linear-gradient(
+      to bottom right,
+      #f32170,
+      #ff6b08,
+      #cf23cf,
+      #eedd44
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  .hero-intro {
+    margin-top: var(--size-4);
+    color: var(--gray-7);
+  }
+
+  .hero-text {
+    align-self: center;
+  }
+
+  .hero-image {
+    border-radius: var(--radius-2);
+  }
+
+  section {
+    margin-top: var(--section-margin-top);
+    padding-block: var(--size-4);
+  }
+
+  section > h2 {
+    margin-bottom: var(--size-4);
+    text-align: center;
+  }
+
+  .section-container > * {
+    width: min(80rem, 100% - 2em);
+    max-inline-size: min(80rem, 100% - 2em);
+    margin-inline: auto;
+  }
+
+  .section-color {
+    background-color: var(--orange-2);
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--size-4);
+  }
+</style>
+
+<script>
+  /*   const options = {
+    root: document.querySelector("#header"),
+    rootMargin: "0px",
+    threshold: 0.5,
+  };
+
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      alert("intersection");
+      // Each entry describes an intersection change for one observed
+      // target element:
+      //   entry.boundingClientRect
+      //   entry.intersectionRatio
+      //   entry.intersectionRect
+      //   entry.isIntersecting
+      //   entry.rootBounds
+      //   entry.target
+      //   entry.time
+    });
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+
+  const target = document.querySelector("#hero");
+
+  observer.observe(target); */
+</script>
