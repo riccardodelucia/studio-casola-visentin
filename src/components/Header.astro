@@ -1,5 +1,7 @@
 ---
+import feather from "feather-icons";
 
+const phoneIcon = feather.icons.phone.toSvg();
 ---
 
 <header id="header">
@@ -7,11 +9,14 @@
     <span class="header-logo">Studio Casola Visentin</span>
     <nav>
       <ul class="header-links">
+        <li><a class="header-link" href="#">Chi Siamo</a></li>
         <li><a class="header-link" href="#services">Servizi</a></li>
-        <li><a class="header-link" href="#">Dove Trovarci</a></li>
+        <li><a class="header-link" href="#">Contatti</a></li>
       </ul>
     </nav>
-    <a href="#" class="contact-link">Contattaci</a>
+    <a href="#contacts" class="contact-link"
+      ><Fragment set:html={phoneIcon} /> 0165 267198</a
+    >
   </div>
 </header>
 
@@ -67,11 +72,13 @@
 
   .contact-link {
     justify-self: end;
-    display: block;
+    display: grid;
+    grid-template-columns: 25px 1fr;
+    gap: var(--size-2);
     padding-block: 1em;
     padding-inline: 2em;
     background-color: var(--orange-7);
-    border-radius: var(--radius-5);
+    border-radius: var(--radius-3);
     color: white;
     transition: background-color 200ms ease-in;
   }
