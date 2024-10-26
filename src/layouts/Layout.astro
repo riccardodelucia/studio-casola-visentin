@@ -26,5 +26,23 @@ import Header from "../components/Header.astro";
       width: min(80rem, 100% - 2em);
       margin-inline: auto;
     }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--gray-9);
+    }
+
+    h1 + p,
+    h2 + p,
+    h3 + p,
+    h4 + p,
+    h5 + p,
+    h6 + p {
+      margin-top: 1em;
+    }
   </style>
 </html>

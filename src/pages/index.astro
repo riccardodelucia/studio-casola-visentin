@@ -3,11 +3,13 @@ import Layout from "../layouts/Layout.astro";
 
 import { Image } from "astro:assets";
 import heroImg from "../assets/images/hero.jpg";
+
+import Card from "../components/Card.astro";
 ---
 
 <Layout title="Sudio Casola Visentin">
   <main>
-    <section class="sized-container hero">
+    <section id="hero" class="sized-container hero">
       <div class="hero-text">
         <h1>Studio <span>Casola Visentin</span></h1>
         <p class="hero-intro">
@@ -19,17 +21,31 @@ import heroImg from "../assets/images/hero.jpg";
       </div>
       <Image class="hero-image" src={heroImg} alt="Entrata" />
     </section>
+    <section id="services" class="section-container section-color">
+      <h2>Servizi</h2>
+      <div class="cards-container">
+        <Card title="Lorem" body="Lorem ipsum dolor sit" />
+        <Card title="Lorem" body="Lorem ipsum dolor sit" />
+        <Card title="Lorem" body="Lorem ipsum dolor sit" />
+      </div>
+    </section>
+    <section class="section-container">
+      <h2>Dove Siamo</h2>
+    </section>
   </main>
 </Layout>
 
 <style>
+  * {
+    --section-margin-top: var(--size-10);
+  }
+
   .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--size-5);
-    margin-top: var(--size-10);
-    padding-inline: var(--size-2);
   }
+
   h1 > span {
     background-image: linear-gradient(
       to bottom right,
@@ -51,6 +67,61 @@ import heroImg from "../assets/images/hero.jpg";
   }
 
   .hero-image {
-    border-radius: 50px;
+    border-radius: var(--radius-2);
+  }
+
+  section {
+    margin-top: var(--section-margin-top);
+    padding-block: var(--size-4);
+  }
+
+  section > h2 {
+    margin-bottom: var(--size-4);
+    text-align: center;
+  }
+
+  .section-container > * {
+    width: min(80rem, 100% - 2em);
+    max-inline-size: min(80rem, 100% - 2em);
+    margin-inline: auto;
+  }
+
+  .section-color {
+    background-color: var(--orange-2);
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: var(--size-4);
   }
 </style>
+
+<script>
+  /*   const options = {
+    root: document.querySelector("#header"),
+    rootMargin: "0px",
+    threshold: 0.5,
+  };
+
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      alert("intersection");
+      // Each entry describes an intersection change for one observed
+      // target element:
+      //   entry.boundingClientRect
+      //   entry.intersectionRatio
+      //   entry.intersectionRect
+      //   entry.isIntersecting
+      //   entry.rootBounds
+      //   entry.target
+      //   entry.time
+    });
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+
+  const target = document.querySelector("#hero");
+
+  observer.observe(target); */
+</script>
