@@ -34,12 +34,25 @@ const phoneIcon = feather.icons.phone.toSvg();
   }
 
   .header-container {
-    height: 100%;
+    height: 5rem;
     padding-block: var(--size-2);
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
     gap: var(--size-5);
+  }
+
+  .header-blurred {
+    background-color: rgba(245, 245, 245, 0.95);
+    color: var(--gray-9);
+  }
+
+  .header-blurred .header-link {
+    color: var(--gray-7);
+  }
+
+  .header-blurred .header-link:hover {
+    border-bottom: 2px solid var(--gray-7);
   }
 
   .header-links {
@@ -57,12 +70,12 @@ const phoneIcon = feather.icons.phone.toSvg();
     color: inherit;
     display: block;
     padding: 0.1em;
-    border-bottom: var(--underline) transparent;
+    border-bottom: 2px solid transparent;
     transition: border-color 200ms ease-in;
   }
 
   .header-link:hover {
-    border-bottom: var(--underline) var(--gray-1);
+    border-bottom: 2px solid var(--gray-1);
   }
 
   .header-logo {

@@ -21,6 +21,102 @@ import Map from "../components/Map.astro";
         </p>
       </div>
     </section>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
+      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
+      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
+      reprehenderit est aliquam.
+    </p>
     <!-- <section id="who-we-are" class="section-container section-color">
       <h2>Chi Siamo</h2><p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
@@ -132,37 +228,33 @@ import Map from "../components/Map.astro";
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-
-  /* .section-map > h2 {
-    margin: 0;
-  } */
 </style>
 
 <script>
-  /*   const options = {
-    root: document.querySelector("#header"),
-    rootMargin: "0px",
-    threshold: 0.5,
+  let observer;
+
+  let options = {
+    root: null,
+    rootMargin: "-80px 0px 0px 0px",
+    threshold: [0, 0.25, 0.5, 0.75, 1],
   };
 
-  const callback = (entries, observer) => {
+  const header = document.getElementById("header");
+
+  const intersectionCallback = (entries) => {
     entries.forEach((entry) => {
-      alert("intersection");
-      // Each entry describes an intersection change for one observed
-      // target element:
-      //   entry.boundingClientRect
-      //   entry.intersectionRatio
-      //   entry.intersectionRect
-      //   entry.isIntersecting
-      //   entry.rootBounds
-      //   entry.target
-      //   entry.time
+      if (!entry.isIntersecting) {
+        console.log(header);
+        header?.classList.add("header-blurred");
+      } else {
+        header?.classList.remove("header-blurred");
+      }
     });
   };
 
-  const observer = new IntersectionObserver(callback, options);
+  observer = new IntersectionObserver(intersectionCallback, options);
 
-  const target = document.querySelector("#hero");
+  const hero = document.querySelector("#hero");
 
-  observer.observe(target); */
+  observer.observe(hero);
 </script>
