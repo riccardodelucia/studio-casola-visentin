@@ -1,27 +1,35 @@
 ---
-const { title, body } = Astro.props;
+const { img, body } = Astro.props;
+
+import { Image } from "astro:assets";
+const imgImport = img();
 ---
 
 <div class="card">
-  <h3>{title}</h3>
+  <Image
+    class="corridor-img"
+    src={imgImport}
+    alt="Corridoio Studio Casola Visentin"
+    width={imgImport.width}
+  />
   <p>
     {body}
   </p>
 </div>
 
 <style>
-  .card {
-    padding: var(--size-4) var(--size-3);
-    border-radius: var(--radius-2);
-    box-shadow: var(--shadow-3);
-    background-color: white;
-  }
-
-  .card > h3 {
-    font-weight: var(--font-weight-4);
-  }
-
   .card > p {
     font-weight: var(--font-weight-3);
+    color: white;
+    text-align: center;
+  }
+
+  .card {
+    width: 15rem;
+  }
+
+  .card img {
+    width: 100%;
+    margin-bottom: var(--size-3);
   }
 </style>
