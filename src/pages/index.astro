@@ -2,121 +2,35 @@
 import Layout from "../layouts/Layout.astro";
 
 import { Image } from "astro:assets";
-import heroImg from "../assets/images/hero.jpg";
+import corridorImg from "../assets/images/corridor.jpg";
 
+import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 import Map from "../components/Map.astro";
 ---
 
 <Layout title="Sudio Casola Visentin">
   <main>
-    <section id="hero" class="hero">
-      <div class="container hero-container">
-        <h1>Studio <span>Casola Visentin</span></h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-          consequatur incidunt laboriosam modi impedit unde a dolorum, officiis
-          similique eos est molestias aspernatur dignissimos facere! Cumque
-          ratione a nihil iusto!
-        </p>
+    <Hero />
+    <section class="section-1">
+      <div class="container section-grid">
+        <div class="about-us">
+          <h2>Chi siamo</h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet
+            temporibus repellat odio fugiat sed possimus similique, aut
+            laudantium voluptatibus. Minima excepturi vel mollitia facere?
+            Minima exercitationem doloribus a possimus nobis?
+          </p>
+        </div>
+        <Image
+          class="corridor-img"
+          src={corridorImg}
+          alt="Corridoio Studio Casola Visentin"
+        />
       </div>
     </section>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel excepturi
-      minus, architecto fugiat cumque aperiam qui. Quisquam provident rerum
-      mollitia molestiae facilis veritatis deleniti, fuga esse impedit
-      reprehenderit est aliquam.
-    </p>
+
     <!-- <section id="who-we-are" class="section-container section-color">
       <h2>Chi Siamo</h2><p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
@@ -139,78 +53,28 @@ import Map from "../components/Map.astro";
         <Map />
       </div>
     </section> -->
+    <footer></footer>
   </main>
 </Layout>
 
 <style>
-  * {
-    --section-margin-top: var(--size-10);
+  footer {
+    height: 400px;
+    background-color: var(--blue-12);
+    margin-top: 200px;
+  }
+  .section-1 {
+    margin-top: var(--size-10);
   }
 
-  .hero {
-    background-image: linear-gradient(
-        to right bottom,
-        rgba(44, 138, 62, 0.7),
-        rgba(115, 21, 54, 0.7)
-      ),
-      url("/images/hero1.jpg");
-    background-size: cover;
-    height: 30rem;
-  }
-
-  .hero-container {
+  .section-grid {
     display: grid;
-    gap: var(--size-4);
-    align-content: center;
-    justify-content: center;
-    height: 100%;
-    text-align: center;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: var(--size-12);
   }
 
-  .hero-container p {
-    color: var(--gray-1);
-  }
-
-  h1 {
-    color: white;
-    font-weight: var(--font-weight-3);
-  }
-
-  /*   h1 > span {
-    background-image: linear-gradient(
-      to bottom right,
-      #f32170,
-      #ff6b08,
-      #cf23cf,
-      #eedd44
-    );
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  } */
-
-  .hero-intro {
-    margin-top: var(--size-4);
-    color: var(--gray-7);
-  }
-
-  /* section {
-    margin-top: var(--section-margin-top);
-    padding-block: var(--size-4);
-  } */
-
-  section > h2 {
-    margin-bottom: var(--size-4);
-    text-align: center;
-  }
-
-  .container {
-    width: min(80rem, 100% - 2em);
-    max-inline-size: min(80rem, 100% - 2em);
-    margin-inline: auto;
-  }
-
-  .section-color {
-    background-color: var(--orange-2);
+  .about-us {
+    align-self: center;
   }
 
   .cards-container {
@@ -219,14 +83,8 @@ import Map from "../components/Map.astro";
     gap: var(--size-4);
   }
 
-  .contacts {
-    background-color: white;
-    padding: 0;
-  }
-
-  .contacts-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  .corridor-img {
+    border-radius: var(--radius-2);
   }
 </style>
 
