@@ -1,0 +1,41 @@
+---
+
+---
+
+<section id="hero" class="hero">
+  <div class="container hero-container">
+    <h1>Studio Casola Visentin</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum consequatur
+      incidunt laboriosam modi impedit unde a dolorum, officiis similique eos
+      est molestias aspernatur dignissimos facere! Cumque ratione a nihil iusto!
+    </p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(44, 138, 62, 0.7),
+        rgba(115, 21, 54, 0.7)
+      ),
+      url("/images/hero.jpg");
+    background-size: cover;
+    height: 30rem;
+    color: white;
+  }
+
+  .hero-container {
+    display: grid;
+    gap: var(--size-4);
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+  }
+
+  .hero-container p {
+    color: var(--gray-2);
+  }
+</style>

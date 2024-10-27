@@ -22,18 +22,13 @@ import Header from "../components/Header.astro";
     @import "open-props/postcss/style";
     @import "open-props/postcss/normalize";
 
-    .sized-container {
-      width: min(80rem, 100% - 2em);
-      margin-inline: auto;
-    }
-
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-      color: var(--gray-9);
+      font-weight: var(--font-weight-3);
     }
 
     h1 + p,
@@ -43,6 +38,16 @@ import Header from "../components/Header.astro";
     h5 + p,
     h6 + p {
       margin-top: 1em;
+    }
+
+    .container {
+      width: min(80rem, 100% - 2em);
+      max-inline-size: min(80rem, 100% - 2em);
+      margin-inline: auto;
+    }
+
+    p {
+      color: var(--gray-7);
     }
   </style>
 </html>
