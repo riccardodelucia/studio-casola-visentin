@@ -18,37 +18,53 @@ import Header from "../components/Header.astro";
     <Header />
     <slot />
   </body>
-  <style is:global>
-    @import "open-props/postcss/style";
-    @import "open-props/postcss/normalize";
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-weight: var(--font-weight-3);
-      color: var(--gray-8);
-    }
-
-    h1 + p,
-    h2 + p,
-    h3 + p,
-    h4 + p,
-    h5 + p,
-    h6 + p {
-      margin-top: 1em;
-    }
-
-    .container {
-      width: min(80rem, 100% - 2em);
-      max-inline-size: min(80rem, 100% - 2em);
-      margin-inline: auto;
-    }
-
-    p {
-      color: var(--gray-7);
-    }
-  </style>
 </html>
+
+<style is:global>
+  @import "open-props/postcss/style";
+  @import "open-props/postcss/normalize";
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: var(--font-weight-3);
+    color: var(--gray-8);
+  }
+
+  h1 + p,
+  h2 + p,
+  h3 + p,
+  h4 + p,
+  h5 + p,
+  h6 + p {
+    margin-top: 1em;
+  }
+
+  .container {
+    width: min(80rem, 100% - 2em);
+    max-inline-size: min(80rem, 100% - 2em);
+    margin-inline: auto;
+  }
+
+  p {
+    color: var(--gray-7);
+  }
+
+  .section-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: var(--size-12);
+  }
+
+  .section-standard {
+    margin-top: var(--size-10);
+    margin-bottom: var(--size-8);
+  }
+
+  .section-standard h2 {
+    margin-bottom: var(--size-6);
+  }
+</style>
