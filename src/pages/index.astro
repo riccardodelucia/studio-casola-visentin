@@ -1,63 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-import { Image } from "astro:assets";
-import corridorImg from "../assets/images/corridor.jpg";
-
 import Hero from "../components/Hero.astro";
-import Card from "../components/Card.astro";
-import Map from "../components/Map.astro";
-
-const cardImages = [
-  {
-    img: () => import("../assets/images/consulente-lavoro-buste-paga.jpg"),
-    body: "Elaborazione Buste Paga",
-  },
-  {
-    img: () => import("../assets/images/consulente-lavoro-personale.jpg"),
-    body: "Amministrazione del Personale",
-  },
-  {
-    img: () => import("../assets/images/consulente-lavoro-giuslavorista.jpg"),
-    body: "Consulenza Giuslavoristica e Contrattuale",
-  },
-  {
-    img: () => import("../assets/images/privacy.jpg"),
-    body: "Servizi del Commercialista",
-  },
-];
+import AboutUs from "../components/AboutUs.astro";
+import Services from "../components/Services.astro";
+import Contacts from "../components/Contacts.astro";
 ---
 
 <Layout title="Sudio Casola Visentin">
   <main>
     <Hero />
-    <section class="section-about-us">
-      <div class="container section-grid">
-        <div class="about-us">
-          <h2>Chi siamo</h2>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet
-            temporibus repellat odio fugiat sed possimus similique, aut
-            laudantium voluptatibus. Minima excepturi vel mollitia facere?
-            Minima exercitationem doloribus a possimus nobis?
-          </p>
-        </div>
-        <Image
-          class="corridor-img"
-          src={corridorImg}
-          alt="Corridoio Studio Casola Visentin"
-        />
-      </div>
-    </section>
-    <section class="section-services">
-      <div class="container">
-        <h2>Servizi</h2>
-        <div class="cards-grid">
-          {cardImages.map(({ img, body }) => <Card img={img} body={body} />)}
-        </div>
-      </div>
-    </section>
-
+    <AboutUs />
+    <Services />
+    <Contacts />
     <footer></footer>
   </main>
 </Layout>
@@ -66,50 +21,6 @@ const cardImages = [
   footer {
     height: 400px;
     background-color: var(--blue-12);
-    margin-top: 200px;
-  }
-  .section-about-us,
-  .section-services {
-    margin-top: var(--size-10);
-  }
-
-  .section-about-us h2,
-  .section-services h2 {
-    margin-bottom: var(--size-6);
-  }
-
-  .section-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-column-gap: var(--size-12);
-  }
-
-  .about-us {
-    align-self: center;
-  }
-
-  .corridor-img {
-    border-radius: var(--radius-2);
-  }
-
-  .section-services {
-    background-color: var(--blue-9);
-    padding-block: var(--size-8);
-    display: grid;
-    grid-row-gap: var(--size-7);
-  }
-
-  .section-services h2 {
-    color: white;
-    text-align: center;
-    margin-inline: auto;
-  }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: var(--size-8);
-    justify-items: center;
   }
 </style>
 

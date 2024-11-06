@@ -1,0 +1,44 @@
+---
+import feather from "feather-icons";
+
+const { iconType, content, color = "blue", href = "#" } = Astro.props;
+
+console.log(iconType);
+
+const icon = feather.icons[iconType].toSvg();
+---
+
+<a href={href} class:list={["contacts-link", `color-${color}`]}
+  ><Fragment set:html={icon} /> {content}
+</a>
+
+<style>
+  .color-blue {
+    background-color: var(--blue-10);
+  }
+
+  .color-blue:hover {
+    background-color: var(--blue-11);
+  }
+
+  .color-green {
+    background-color: var(--green-9);
+  }
+
+  .color-green:hover {
+    background-color: var(--green-10);
+  }
+
+  .contacts-link {
+    display: flex;
+    justify-content: center;
+    width: 15rem;
+    gap: var(--size-2);
+    padding-block: 1em;
+    padding-inline: 2em;
+    border-radius: var(--radius-3);
+    color: white;
+    transition: background-color 200ms ease-in;
+    text-decoration: none;
+  }
+</style>
