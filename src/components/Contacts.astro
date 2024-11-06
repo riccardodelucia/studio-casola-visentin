@@ -1,10 +1,12 @@
 ---
 import feather from "feather-icons";
 
+import ContactsLink from "../components/ContactsLink.astro";
+
 const mapIcon = feather.icons.map.toSvg();
 ---
 
-<section class="section-contacts">
+<section id="contacts" class="section-contacts">
   <div class="container contacts-container">
     <h2>Contatti</h2>
     <div class="contacts-grid">
@@ -32,6 +34,10 @@ const mapIcon = feather.icons.map.toSvg();
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="contacts-links-container">
+        <ContactsLink iconType="phone" content="0165 267198" />
+        <ContactsLink iconType="mail" content="info@cedacosrl.it" />
       </div>
     </div>
   </div>
@@ -85,5 +91,10 @@ const mapIcon = feather.icons.map.toSvg();
     display: flex;
     gap: var(--size-2);
     align-items: center;
+  }
+
+  .contacts-links-container {
+    display: flex;
+    gap: var(--size-4);
   }
 </style>
