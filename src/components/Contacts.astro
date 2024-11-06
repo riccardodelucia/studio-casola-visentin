@@ -4,28 +4,45 @@ import feather from "feather-icons";
 import ContactsLink from "../components/ContactsLink.astro";
 
 const mapIcon = feather.icons.map.toSvg();
+const mapClock = feather.icons.clock.toSvg();
+
+const links = {
+  phone: {
+    iconType: "phone",
+    content: "0165 267198",
+    color: "blue",
+    href: "tel:0165 267198",
+  },
+  mail: {
+    iconType: "mail",
+    content: "info@cedacosrl.it",
+    color: "green",
+    href: "mailto:info@cedacosrl.it",
+  },
+};
 ---
 
 <section id="contacts" class="section-contacts">
   <div class="container contacts-container">
     <h2>Contatti</h2>
     <div class="contacts-grid">
-      <div class="business-hours">
-        <h3 class="contacts-h3">Orari</h3>
-        <ul>
+      <div class="contacts-main">
+        <h3 class="contacts-h3"><Fragment set:html={mapClock} /> Orari</h3>
+        <ul class="business-hours">
           <li>
             Dal Lunedì al Giovedì: <span>09:00 - 13:00 | 14:00 - 18:00</span>
           </li>
           <li>Venerdì: <span>09:00 - 13:00</span></li>
           <li>Sabato e Domenica: <span>chiuso</span></li>
         </ul>
+        <div class="contacts-links">
+          <ContactsLink {...links.phone} />
+          <ContactsLink {...links.mail} />
+        </div>
       </div>
       <div class="location">
-        <h3 class="contacts-h3">Dove Siamo</h3>
-        <address>
-          <Fragment set:html={mapIcon} /> Localita' Grand Chemin 30, Saint-christophe,
-          AO 11020
-        </address>
+        <h3 class="contacts-h3"><Fragment set:html={mapIcon} /> Dove Siamo</h3>
+        <address>Localita' Grand Chemin 30, Saint-christophe, AO 11020</address>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89104.91164014465!2d7.213734697265624!3d45.74054999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4788df4df04284ad%3A0x4f606dddc0e97e3b!2sCe.da.co%20srl!5e0!3m2!1sit!2sit!4v1730890177130!5m2!1sit!2sit"
           width="300"
@@ -34,10 +51,6 @@ const mapIcon = feather.icons.map.toSvg();
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <div class="contacts-links-container">
-        <ContactsLink iconType="phone" content="0165 267198" />
-        <ContactsLink iconType="mail" content="info@cedacosrl.it" />
       </div>
     </div>
   </div>
@@ -57,13 +70,12 @@ const mapIcon = feather.icons.map.toSvg();
 
   .contacts-grid {
     margin-top: var(--size-3);
-    color: var(--gray-7);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: var(--size-5);
   }
 
-  .business-hours ul {
+  .business-hours {
     list-style: none;
     padding: 0;
   }
@@ -78,6 +90,9 @@ const mapIcon = feather.icons.map.toSvg();
   }
 
   .contacts-h3 {
+    display: flex;
+    gap: var(--size-2);
+    align-items: center;
     font-size: var(--font-size-4);
     font-weight: var(--font-weight-4);
     color: var(--gray-7);
@@ -93,8 +108,9 @@ const mapIcon = feather.icons.map.toSvg();
     align-items: center;
   }
 
-  .contacts-links-container {
-    display: flex;
-    gap: var(--size-4);
+  .contacts-links {
+    margin-top: var(--size-3);
+    display: grid;
+    grid-row-gap: var(--size-2);
   }
 </style>
