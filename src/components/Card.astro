@@ -2,15 +2,16 @@
 const { img, body } = Astro.props;
 
 import { Image } from "astro:assets";
-const imgImport = img();
+//const imgImport = img();
 ---
 
 <div class="card">
   <Image
     class="corridor-img"
-    src={imgImport}
+    src="https://picsum.photos/300/200"
     alt="Corridoio Studio Casola Visentin"
-    width={imgImport.width}
+    width="300"
+    height="200"
   />
   <p>
     {body}
