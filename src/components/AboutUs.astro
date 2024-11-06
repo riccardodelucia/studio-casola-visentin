@@ -4,7 +4,7 @@ import corridorImg from "../assets/images/corridor.jpg";
 ---
 
 <section id="about-us" class="section-standard">
-  <div class="container section-grid">
+  <div class="container about-us-grid">
     <div class="about-us">
       <h2>Chi siamo</h2>
       <p>
@@ -30,5 +30,11 @@ import corridorImg from "../assets/images/corridor.jpg";
 
   .corridor-img {
     border-radius: var(--radius-2);
+  }
+
+  .about-us-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: var(--size-12);
   }
 </style>
