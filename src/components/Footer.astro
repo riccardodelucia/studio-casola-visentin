@@ -1,11 +1,23 @@
+---
+import feather from "feather-icons";
+
+const icon = feather.icons.github.toSvg();
+---
+
 <footer class="page-footer">
-  <div class="container">
+  <div class="container footer-container">
     <span class="footer-title">Studio Casola Visentin</span>
     <address>Localita' Grand Chemin 30, Saint-christophe, AO 11020</address>
     <a href="tel:+39 0165 267198">+39 0165 267198</a> | <a
       href="mailto:info@cedacosrl.it">info@cedacosrl.it</a
     >
     <span class="footer-vat-code">P.IVA: 123456789</span>
+  </div>
+  <div class="credits">
+    <p>Sito web realizzato da Riccardo De Lucia</p>
+    <a href="https://github.com/riccardodelucia"
+      ><Fragment set:html={icon} />
+    </a>
   </div>
 </footer>
 
@@ -15,16 +27,19 @@
     font-size: var(--font-size-3);
   }
   .page-footer {
-    padding-block: var(--size-8);
-    padding-inline: var(--size-4);
+    padding-top: var(--size-8);
     background-color: var(--blue-12);
     color: white;
     text-align: center;
   }
 
-  .page-footer * + * {
-    margin-top: var(--size-3);
+  .footer-container {
+    padding-inline: var(--size-4);
   }
+
+  /*   .page-footer * + * {
+    margin-top: var(--size-3);
+  } */
 
   .page-footer a {
     color: var(--blue-4);
@@ -33,5 +48,28 @@
 
   .footer-vat-code {
     display: block;
+  }
+
+  .credits {
+    padding-block: var(--size-1);
+    padding-inine: var(--size-3);
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-2);
+    margin-top: var(--size-3);
+  }
+
+  .credits * {
+    color: white;
+    font-size: var(--font-size-0);
+  }
+
+  .credits a {
+    color: inherit;
+    margin: 0;
+    padding: 5px;
   }
 </style>
