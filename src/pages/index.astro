@@ -28,7 +28,6 @@ import Contacts from "../components/Contacts.astro";
   const intersectionCallback = (entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) {
-        console.log(header);
         header?.classList.add("header-blurred");
       } else {
         header?.classList.remove("header-blurred");

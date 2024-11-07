@@ -4,21 +4,69 @@
 
 <header id="header">
   <div class="container header-container">
-    <span class="header-logo">Studio Casola Visentin</span>
+    <a class="header-logo" data-id="hero" href="#hero">Studio Casola Visentin</a
+    >
     <nav>
       <ul class="header-links">
-        <li><a class="header-link" href="#about-us">Chi Siamo</a></li>
-        <li><a class="header-link" href="#services">Servizi</a></li>
-        <li><a class="header-link" href="#contacts">Contatti</a></li>
+        <li>
+          <a class="header-link" data-id="about-us" href="#about-us"
+            >Chi Siamo</a
+          >
+        </li>
+        <li>
+          <a class="header-link" data-id="services" href="#services">Servizi</a>
+        </li>
+        <li>
+          <a class="header-link" data-id="contacts" href="#contacts">Contatti</a
+          >
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
+<script>
+  const header = document.querySelector("#header");
+
+  const headerHeight = header?.getBoundingClientRect().height || 0;
+
+  const scrollIntoViewWithOffset = (selection, offset = 0) => {
+    window.scrollTo({
+      behavior: "smooth",
+      top:
+        selection.getBoundingClientRect().top -
+        document.body.getBoundingClientRect().top -
+        offset,
+    });
+    selection.focus();
+  };
+
+  const setupSmoothScroll = (id) => {
+    const link = document.querySelector(`a[data-id='${id}']`);
+    const section = document.querySelector(`#${id}`);
+
+    // Improve accessibility: make the element focusable when scrolled to.
+    // Remove tab focus capability to just focus upon click from eventListeners
+    section?.setAttribute("tabindex", "-1"); // make the element focusable
+    section?.removeAttribute("tabindex");
+
+    link?.addEventListener("click", (event) => {
+      event.preventDefault();
+      scrollIntoViewWithOffset(section, headerHeight);
+    });
+  };
+
+  setupSmoothScroll("hero");
+  setupSmoothScroll("about-us");
+  setupSmoothScroll("services");
+  setupSmoothScroll("contacts");
+</script>
+
 <style>
   a {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
   }
 
   header {
