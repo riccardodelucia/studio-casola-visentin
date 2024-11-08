@@ -1,9 +1,3 @@
----
-import feather from "feather-icons";
-
-const icon = feather.icons.github.toSvg();
----
-
 <footer class="page-footer">
   <div class="container footer-container">
     <span class="footer-title">Studio Casola Visentin</span>
@@ -13,12 +7,6 @@ const icon = feather.icons.github.toSvg();
     >
     <span class="footer-vat-code">P.IVA: 123456789</span>
   </div>
-  <div class="credits">
-    <p>Sito web realizzato da Riccardo De Lucia</p>
-    <a href="https://github.com/riccardodelucia"
-      ><Fragment set:html={icon} />
-    </a>
-  </div>
 </footer>
 
 <style>
@@ -27,7 +15,8 @@ const icon = feather.icons.github.toSvg();
     font-size: var(--font-size-3);
   }
   .page-footer {
-    padding-top: var(--size-8);
+    padding-block: var(--size-6);
+    padding-inline: var(--size-2);
     background-color: var(--blue-12);
     color: white;
     text-align: center;
@@ -37,10 +26,6 @@ const icon = feather.icons.github.toSvg();
     padding-inline: var(--size-4);
   }
 
-  /*   .page-footer * + * {
-    margin-top: var(--size-3);
-  } */
-
   .page-footer a {
     color: var(--blue-4);
     text-decoration-color: var(--blue-4);
@@ -48,28 +33,5 @@ const icon = feather.icons.github.toSvg();
 
   .footer-vat-code {
     display: block;
-  }
-
-  .credits {
-    padding-block: var(--size-1);
-    padding-inine: var(--size-3);
-    background-color: black;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--size-2);
-    margin-top: var(--size-3);
-  }
-
-  .credits * {
-    color: white;
-    font-size: var(--font-size-0);
-  }
-
-  .credits a {
-    color: inherit;
-    margin: 0;
-    padding: 5px;
   }
 </style>
