@@ -29,7 +29,7 @@ const cardImages = [
   <div class="container">
     <h2 id="heading-services">Servizi</h2>
     <p class="cards-grid">
-      <ul class="cards-grid">
+      <ul class="cards-grid list-reset">
         {
           cardImages.map(({ img, body }) => (
             <li>
@@ -55,16 +55,9 @@ const cardImages = [
   }
 
   .cards-grid {
-    list-style: none;
-    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     grid-column-gap: var(--section-grid-column-gap);
     justify-items: center;
-  }
-
-  .cards-grid li {
-    margin: 0;
-    padding: 0;
   }
 </style>

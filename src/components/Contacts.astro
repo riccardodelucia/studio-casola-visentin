@@ -29,10 +29,10 @@ const links = {
 >
   <div class="container contacts-container">
     <h2 id="heading-contacts">Contatti</h2>
-    <div class="contacts-grid">
-      <div class="contacts-main">
+    <div class="section-content-grid">
+      <div class="contacts-info">
         <h3 class="contacts-h3"><Fragment set:html={mapClock} /> Orari</h3>
-        <ul class="business-hours">
+        <ul class="business-hours list-reset">
           <li>
             Dal Lunedì al Giovedì: <span>09:00 - 13:00 | 14:00 - 18:00</span>
           </li>
@@ -44,7 +44,7 @@ const links = {
           <ContactsLink {...links.mail} />
         </div>
       </div>
-      <div class="location">
+      <div class="contacts-location">
         <h3 class="contacts-h3"><Fragment set:html={mapIcon} /> Dove Siamo</h3>
         <address>Localita' Grand Chemin 30, Saint-christophe, AO 11020</address>
         <iframe
@@ -63,8 +63,8 @@ const links = {
 <style>
   .section-contacts {
     background-color: var(--gray-2);
-    padding-block: var(--size-8);
   }
+
   .contacts-container {
     background-color: white;
     border-radius: var(--radius-3);
@@ -72,25 +72,17 @@ const links = {
     box-shadow: var(--shadow-3);
   }
 
-  .contacts-grid {
-    margin-top: var(--size-3);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: var(--size-5);
-  }
-
-  .business-hours {
-    list-style: none;
-    padding: 0;
-  }
-
   .business-hours li {
-    color: var(--gray-6);
-    padding-left: 0;
+    color: var(--text-color-body);
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    font-size: var(--font-size-2);
+  }
+
+  .contacts-links {
+    margin-top: var(--size-5);
+    display: grid;
+    grid-row-gap: var(--size-2);
   }
 
   .contacts-h3 {
@@ -103,18 +95,12 @@ const links = {
     margin-bottom: var(--size-2);
   }
 
-  .location address {
-    font-style: normal;
+  .contacts-location address {
     margin-bottom: var(--size-2);
+    font-size: var(--content-font-size);
     color: var(--gray-6);
     display: flex;
     gap: var(--size-2);
     align-items: center;
-  }
-
-  .contacts-links {
-    margin-top: var(--size-3);
-    display: grid;
-    grid-row-gap: var(--size-2);
   }
 </style>
