@@ -70,7 +70,7 @@
   }
 
   header {
-    color: var(--gray-1);
+    color: var(--text-color-white);
     position: sticky;
     top: 0;
     background-color: var(--color-blue-light);
@@ -88,7 +88,7 @@
 
   .header-blurred {
     background-color: rgba(245, 245, 245, 0.95);
-    color: var(--gray-9);
+    color: var(--text-color-heading);
   }
 
   .header-blurred .header-link {
@@ -101,12 +101,13 @@
 
   .header-links {
     list-style: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 0;
     margin-inline: auto;
     width: fit-content;
     gap: var(--size-8);
-    color: var(--gray-1);
+    color: var(--text-color-white);
   }
 
   .header-link {
@@ -116,10 +117,11 @@
     padding: 0.1em;
     border-bottom: 2px solid transparent;
     transition: border-color 200ms ease-in;
+    text-align: center;
   }
 
   .header-link:hover {
-    border-bottom: 2px solid var(--gray-1);
+    border-bottom: 2px solid var(--text-color-white);
   }
 
   .header-logo {
