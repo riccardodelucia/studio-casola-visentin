@@ -44,6 +44,8 @@ import Credits from "../components/Credits.astro";
 
     --color-green-light: var(--green-9);
     --color-green-dark: var(--green-10);
+
+    --gap-align-icons: var(--size-2);
   }
 
   h1,
@@ -61,16 +63,12 @@ import Credits from "../components/Credits.astro";
     color: var(--text-color-body);
   }
 
-  /*   h1 + p,
-  h2 + p,
-  h3 + p,
-  h4 + p,
-  h5 + p,
-  h6 + p {
-    margin-top: 1em;
-  } */
-
-  * + p {
+  h1 + *,
+  h2 + *,
+  h3 + *,
+  h4 + *,
+  h5 + *,
+  h6 + * {
     margin-top: var(--below-heading-margin);
   }
 
@@ -99,5 +97,16 @@ import Credits from "../components/Credits.astro";
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: var(--section-grid-column-gap);
+  }
+
+  .visibly-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
   }
 </style>

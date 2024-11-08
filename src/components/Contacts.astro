@@ -12,12 +12,14 @@ const links = {
     content: "+39 0165 267198",
     color: "blue",
     href: "tel:+39 0165 267198",
+    ariaDescription: "Numero di telefono +39 0165 267198",
   },
   mail: {
     iconType: "mail",
     content: "info@cedacosrl.it",
     color: "green",
     href: "mailto:info@cedacosrl.it",
+    ariaDescription: "Indirizzo di posta elettronica info@cedacosrl.it",
   },
 };
 ---
@@ -31,7 +33,7 @@ const links = {
     <h2 id="heading-contacts">Contatti</h2>
     <div class="section-content-grid">
       <div class="contacts-info">
-        <h3 class="contacts-h3"><Fragment set:html={mapClock} /> Orari</h3>
+        <h3><Fragment set:html={mapClock} /> Orari</h3>
         <ul class="business-hours list-reset">
           <li>
             Dal Lunedì al Giovedì: <span>09:00 - 13:00 | 14:00 - 18:00</span>
@@ -45,7 +47,9 @@ const links = {
         </div>
       </div>
       <div class="contacts-location">
-        <h3 class="contacts-h3"><Fragment set:html={mapIcon} /> Dove Siamo</h3>
+        <h3 class="contacts-h3">
+          <Fragment set:html={mapIcon} /> Dove Siamo
+        </h3>
         <address>Localita' Grand Chemin 30, Saint-christophe, AO 11020</address>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89104.91164014465!2d7.213734697265624!3d45.74054999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4788df4df04284ad%3A0x4f606dddc0e97e3b!2sCe.da.co%20srl!5e0!3m2!1sit!2sit!4v1730890177130!5m2!1sit!2sit"
@@ -72,6 +76,10 @@ const links = {
     box-shadow: var(--shadow-3);
   }
 
+  .business-hours {
+    margin-top: var(--below-heading-margin);
+  }
+
   .business-hours li {
     color: var(--text-color-body);
     display: flex;
@@ -80,27 +88,23 @@ const links = {
   }
 
   .contacts-links {
-    margin-top: var(--size-5);
+    margin-top: var(--below-heading-margin);
     display: grid;
-    grid-row-gap: var(--size-2);
+    grid-row-gap: var(--gap-align-icons);
   }
 
-  .contacts-h3 {
+  h3 {
     display: flex;
-    gap: var(--size-2);
+    gap: var(--gap-align-icons);
     align-items: center;
     font-size: var(--font-size-4);
     font-weight: var(--font-weight-4);
     color: var(--gray-7);
-    margin-bottom: var(--size-2);
   }
 
   .contacts-location address {
-    margin-bottom: var(--size-2);
+    margin-bottom: var(--below-heading-margin);
     font-size: var(--content-font-size);
-    color: var(--gray-6);
-    display: flex;
-    gap: var(--size-2);
-    align-items: center;
+    color: var(--text-color-body);
   }
 </style>

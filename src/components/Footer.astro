@@ -1,11 +1,17 @@
 <footer class="page-footer">
   <div class="container footer-container">
-    <span class="footer-title">Studio Casola Visentin</span>
+    <h2>Studio Casola Visentin</h2>
     <address>Localita' Grand Chemin 30, Saint-christophe, AO 11020</address>
-    <a href="tel:+39 0165 267198">+39 0165 267198</a> | <a
-      href="mailto:info@cedacosrl.it">info@cedacosrl.it</a
-    >
-    <span class="footer-vat-code">P.IVA: 123456789</span>
+    <a href="tel:+39 0165 267198">
+      <span class="visibly-hidden">Numero di telefono +39 0165 267198</span>
+      +39 0165 267198
+    </a> |
+    <a href="mailto:info@cedacosrl.it">
+      <span class="visibly-hidden">
+        Indirizzo di posta elettronica info@cedacosrl.it
+      </span>info@cedacosrl.it
+    </a>
+    <p class="footer-vat-code">P.IVA: 123456789</p>
   </div>
 </footer>
 
@@ -22,9 +28,16 @@
     text-align: center;
   }
 
-  .footer-container {
-    padding-inline: var(--size-4);
+  .page-footer h2 {
+    color: inherit;
+    text-align: center;
+    min-width: 100%;
+    font-size: var(--font-size-3);
   }
+
+  /*   .footer-container {
+    padding-inline: var(--size-4);
+  } */
 
   .page-footer a {
     color: var(--blue-4);
@@ -32,6 +45,7 @@
   }
 
   .footer-vat-code {
-    display: block;
+    min-width: 100%;
+    color: inherit;
   }
 </style>
