@@ -36,7 +36,9 @@ import Credits from "../components/Credits.astro";
     --max-content-width: 80rem;
     --heading-font-weight: var(--font-weight-4);
     --heading-font-family: var(--font-neo-grotesque);
+
     --section-grid-column-gap: var(--size-7);
+
     --below-heading-margin: 1em;
     --content-font-size: var(--font-size-1);
 
@@ -96,9 +98,15 @@ import Credits from "../components/Credits.astro";
     margin: 0;
   }
 
-  .section-content-grid {
+  /*   .section-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas: "content-1 content-2";
+    grid-column-gap: var(--section-grid-column-gap);
+  } */
+
+  .section-content-grid {
+    display: grid;
     grid-column-gap: var(--section-grid-column-gap);
   }
 

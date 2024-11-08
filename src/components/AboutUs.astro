@@ -4,7 +4,7 @@ import corridorImg from "../assets/images/corridor.jpg";
 ---
 
 <section id="about-us" aria-labelledby="heading-about-us">
-  <div class="container section-content-grid">
+  <div class="container about-us-grid">
     <div class="about-us">
       <h2 id="heading-about-us">Chi siamo</h2>
       <p>
@@ -23,14 +23,36 @@ import corridorImg from "../assets/images/corridor.jpg";
 </section>
 
 <style>
+  .about-us-grid {
+    display: grid;
+    grid-row-gap: var(--size-5);
+    grid-template-areas:
+      "about-us"
+      "image";
+  }
+
+  @media (min-width: 580px) {
+    .about-us-grid {
+      grid-template-areas: "about-us image";
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: var(--section-grid-column-gap);
+    }
+
+    .corridor-img {
+      max-width: 20rem;
+    }
+  }
+
   .corridor-img {
     border-radius: var(--border-radius);
-    width: 20rem;
+    width: 100%;
     height: 100%;
     justify-self: center;
+    grid-area: image;
   }
   .about-us {
     align-self: center;
     text-align: justify;
+    grid-area: about-us;
   }
 </style>
