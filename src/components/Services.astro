@@ -21,23 +21,31 @@ const cardImages = [
 ];
 ---
 
-<section id="services" class="section-services section-standard">
+<section
+  id="services"
+  class="section-services"
+  aria-labelledby="heading-services"
+>
   <div class="container">
-    <h2>Servizi</h2>
-    <div class="cards-grid">
-      {cardImages.map(({ img, body }) => <Card img={img} body={body} />)}
-    </div>
+    <h2 id="heading-services">Servizi</h2>
+    <p class="cards-grid">
+      <ul class="cards-grid">
+        {
+          cardImages.map(({ img, body }) => (
+            <li>
+              <Card img={img} body={body} />
+            </li>
+          ))
+        }
+      </ul>
+    </p>
   </div>
 </section>
 
 <style>
   .section-services {
     background-color: var(--blue-9);
-    padding-block: var(--size-8);
     display: grid;
-    grid-row-gap: var(--size-7);
-    margin-bottom: 0;
-    padding-bottom: var(--size-6);
   }
 
   .section-services h2 {
@@ -47,9 +55,16 @@ const cardImages = [
   }
 
   .cards-grid {
+    list-style: none;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: var(--size-8);
+    grid-column-gap: var(--section-grid-column-gap);
     justify-items: center;
+  }
+
+  .cards-grid li {
+    margin: 0;
+    padding: 0;
   }
 </style>

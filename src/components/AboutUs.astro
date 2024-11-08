@@ -3,10 +3,10 @@ import { Image } from "astro:assets";
 import corridorImg from "../assets/images/corridor.jpg";
 ---
 
-<section id="about-us" class="section-standard">
+<section id="about-us" aria-labelledby="heading-about-us">
   <div class="container about-us-grid">
     <div class="about-us">
-      <h2>Chi siamo</h2>
+      <h2 id="heading-about-us">Chi siamo</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet
         temporibus repellat odio fugiat sed possimus similique, aut laudantium
@@ -23,11 +23,6 @@ import corridorImg from "../assets/images/corridor.jpg";
 </section>
 
 <style>
-  #about-us {
-    align-self: center;
-    scroll-behavior: smooth;
-  }
-
   .corridor-img {
     border-radius: var(--radius-2);
   }

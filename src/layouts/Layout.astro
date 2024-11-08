@@ -28,42 +28,51 @@ import Credits from "../components/Credits.astro";
   @import "open-props/postcss/style";
   @import "open-props/postcss/normalize";
 
+  * {
+    --text-color-1: var(--gray-7);
+    --text-color-2: var(--gray-6);
+    --padding-inline: var(--2em);
+    --max-content-width: 80rem;
+    --heading-font-weight: var(--font-weight-4);
+    --heading-font-family: var(--font-neo-grotesque);
+    --section-grid-column-gap: var(--size-7);
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-weight: var(--font-weight-4);
-    color: var(--gray-7);
-    font-family: var(--font-neo-grotesque);
+    font-weight: var(--heading-font-weight);
+    color: var(--text-color-1);
+    font-family: var(--heading-font-family);
   }
 
-  h1 + p,
+  p {
+    color: var(--text-color-2);
+  }
+
+  /*   h1 + p,
   h2 + p,
   h3 + p,
   h4 + p,
   h5 + p,
   h6 + p {
     margin-top: 1em;
+  } */
+
+  * + p {
+    margin-top: 1em;
+  }
+
+  section {
+    padding-block: var(--size-7);
   }
 
   .container {
     width: min(80rem, 100% - 2em);
     max-inline-size: min(80rem, 100% - 2em);
     margin-inline: auto;
-  }
-
-  p {
-    color: var(--gray-6);
-  }
-
-  .section-standard {
-    margin-top: var(--size-10);
-    margin-bottom: var(--size-8);
-  }
-
-  .section-standard h2 {
-    margin-bottom: var(--size-6);
   }
 </style>

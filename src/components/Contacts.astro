@@ -22,9 +22,13 @@ const links = {
 };
 ---
 
-<section id="contacts" class="section-contacts">
+<section
+  id="contacts"
+  class="section-contacts"
+  aria-labelledby="heading-contacts"
+>
   <div class="container contacts-container">
-    <h2>Contatti</h2>
+    <h2 id="heading-contacts">Contatti</h2>
     <div class="contacts-grid">
       <div class="contacts-main">
         <h3 class="contacts-h3"><Fragment set:html={mapClock} /> Orari</h3>

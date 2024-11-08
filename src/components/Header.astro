@@ -52,7 +52,7 @@
 
     link?.addEventListener("click", (event) => {
       event.preventDefault();
-      scrollIntoViewWithOffset(section, headerHeight);
+      scrollIntoViewWithOffset(section, headerHeight - 1); // -5 to fire the animation slightly before reaching the target
     });
   };
 
