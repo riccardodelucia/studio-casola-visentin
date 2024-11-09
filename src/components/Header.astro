@@ -8,7 +8,7 @@ import MenuButton from "./MenuButton.astro";
       Studio Casola Visentin
     </a>
     <nav class="header-nav">
-      <ul>
+      <ul class="list-reset">
         <li>
           <a
             class="header-link header-navlink"
@@ -71,9 +71,35 @@ import MenuButton from "./MenuButton.astro";
   setupSmoothScroll("about-us");
   setupSmoothScroll("services");
   setupSmoothScroll("contacts");
+
+  const links = document.querySelectorAll(".header-navlink");
+  const headerNav = document.querySelector(".header-nav");
+
+  links.forEach((link) => {
+    const closeMenu = () => {
+      const size = window.innerWidth;
+      if (size <= 770) {
+        headerNav?.style.setProperty("visibility", "hidden");
+      }
+    };
+    // when links are clicked on small sizes (menu active), the menu should be closed
+    link.addEventListener("click", closeMenu);
+  });
+
+  // force visibility of nav links when screen is resized to width>770px
+  addEventListener("resize", (event) => {
+    const size = window.innerWidth;
+    if (size > 770) {
+      headerNav?.style.setProperty("visibility", "visible");
+    }
+  });
 </script>
 
 <style>
+  .header-logo {
+    font-weight: 600;
+  }
+
   #header {
     --header-background-top: var(--color-blue-light);
     --header-background-scrolled: rgba(245, 245, 245, 0.95);
@@ -98,13 +124,43 @@ import MenuButton from "./MenuButton.astro";
     gap: var(--size-5);
   }
 
-  @media (min-width: 580px) {
-    .header-nav {
-      display: block;
-    }
-
+  @media (min-width: 770px) {
     #header > div {
       grid-template-columns: 1fr 2fr 1fr;
+    }
+  }
+
+  .header-nav {
+    margin-inline: auto;
+    padding-block: 0;
+    border: 0;
+    visibility: visible;
+  }
+
+  .header-nav > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: var(--size-6);
+    align-items: center;
+    justify-items: center;
+  }
+
+  @media (max-width: 770px) {
+    .header-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      visibility: hidden;
+      background-color: var(--header-background);
+      transition: background-color 0.5s ease;
+    }
+
+    .header-nav > ul {
+      grid-template-columns: 1fr;
+      grid-row-gap: var(--size-4);
+      padding-block: var(--size-4);
+      border-top: 1px solid var(--header-color);
     }
   }
 
@@ -113,21 +169,6 @@ import MenuButton from "./MenuButton.astro";
     cursor: pointer;
     text-decoration: none;
     width: max-content;
-  }
-
-  .header-logo {
-    font-weight: 600;
-  }
-
-  .header-nav > ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 0;
-    margin-inline: auto;
-    width: fit-content;
-    gap: var(--size-8);
-    align-items: center;
   }
 
   .header-navlink {
