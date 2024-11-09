@@ -1,27 +1,38 @@
 ---
-
+import MenuButton from "./MenuButton.astro";
 ---
 
 <header id="header">
-  <div class="container header-container">
-    <a class="header-logo" data-id="hero" href="#hero">Studio Casola Visentin</a
-    >
-    <nav>
-      <ul class="header-links">
+  <div class="container">
+    <a class="header-link header-logo" data-id="hero" href="#hero">
+      Studio Casola Visentin
+    </a>
+    <nav class="header-nav">
+      <ul>
         <li>
-          <a class="header-link" data-id="about-us" href="#about-us"
-            >Chi Siamo</a
+          <a
+            class="header-link header-navlink"
+            data-id="about-us"
+            href="#about-us">Chi Siamo</a
           >
         </li>
         <li>
-          <a class="header-link" data-id="services" href="#services">Servizi</a>
+          <a
+            class="header-link header-navlink"
+            data-id="services"
+            href="#services">Servizi</a
+          >
         </li>
         <li>
-          <a class="header-link" data-id="contacts" href="#contacts">Contatti</a
+          <a
+            class="header-link header-navlink"
+            data-id="contacts"
+            href="#contacts">Contatti</a
           >
         </li>
       </ul>
     </nav>
+    <MenuButton />
   </div>
 </header>
 
@@ -63,43 +74,52 @@
 </script>
 
 <style>
-  a {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-  }
+  #header {
+    --header-background-top: var(--color-blue-light);
+    --header-background-scrolled: rgba(245, 245, 245, 0.95);
+    --header-color-top: var(--text-color-white);
+    --header-color-scrolled: var(--text-color-heading);
 
-  header {
-    color: var(--text-color-white);
+    --header-background: var(--header-background-top);
+    --header-color: var(--header-color-top);
+
+    color: var(--header-color);
     position: sticky;
     top: 0;
-    background-color: var(--color-blue-light);
+    background-color: var(--header-background);
     transition: background-color 0.5s ease;
   }
 
-  .header-container {
-    height: 5rem;
-    padding-block: var(--size-2);
+  #header > div {
+    padding-block: var(--size-4);
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
     gap: var(--size-5);
   }
 
-  .header-blurred {
-    background-color: rgba(245, 245, 245, 0.95);
-    color: var(--text-color-heading);
+  @media (min-width: 580px) {
+    .header-nav {
+      display: block;
+    }
+
+    #header > div {
+      grid-template-columns: 1fr 2fr 1fr;
+    }
   }
 
-  .header-blurred .header-link {
-    color: var(--gray-7);
+  .header-link {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    width: max-content;
   }
 
-  .header-blurred .header-link:hover {
-    border-bottom: 2px solid var(--gray-7);
+  .header-logo {
+    font-weight: 600;
   }
 
-  .header-links {
+  .header-nav > ul {
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -107,41 +127,16 @@
     margin-inline: auto;
     width: fit-content;
     gap: var(--size-8);
-    color: var(--text-color-white);
+    align-items: center;
   }
 
-  .header-link {
-    --underline: 1px solid;
-    color: inherit;
-    display: block;
-    padding: 0.1em;
-    border-bottom: 2px solid transparent;
-    transition: border-color 200ms ease-in;
-    text-align: center;
+  .header-navlink {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 200ms ease-in;
+    padding-bottom: var(--size-1);
   }
 
-  .header-link:hover {
-    border-bottom: 2px solid var(--text-color-white);
-  }
-
-  .header-logo {
-    font-weight: 600;
-    margin-right: auto;
-  }
-
-  .contact-link {
-    justify-self: end;
-    display: grid;
-    grid-template-columns: 25px 1fr;
-    grid-column-gap: var(--size-2);
-    padding-block: 1em;
-    padding-inline: 2em;
-    background-color: var(--color-green-light);
-    border-radius: var(--border-radius);
-    color: white;
-    transition: background-color 200ms ease-in;
-  }
-  .contact-link:hover {
-    background-color: var(--color-green-dark);
+  .header-navlink:hover {
+    border-bottom: 1px solid var(--header-color);
   }
 </style>

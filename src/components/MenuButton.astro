@@ -1,0 +1,47 @@
+---
+
+---
+
+<button id="menu" class="menu" type="button"></button>
+
+<script>
+    const menuButton = document.getElementById("menu")
+    menuButton?.addEventListener("click", ()=> alert("clicked"))
+</script>
+
+<style>
+  .menu {
+    --button-width: 25px;
+    --button-bar-thickness: 2px;
+    --button-bars-offset: 5px;
+    --button-color: var(--text-color-white);
+
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    width: var(--button-width);
+    height: 14px;
+    border-block: var(--button-bar-thickness) solid var(--button-color);
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    justify-self: end;
+  }
+
+
+  .menu::after {
+    content: "";
+    width: var(--button-width);
+    height: var(--button-bar-thickness);
+    background-color: var(--button-color);
+    position: absolute;
+    left: 0;
+    top: 4px;
+  }
+
+  @media (min-width: 580px) {
+      .menu {
+        display: none;
+   }
+
+</style>

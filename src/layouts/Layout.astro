@@ -17,12 +17,10 @@ import Credits from "../components/Credits.astro";
     <title>{title}</title>
   </head>
   <body>
-    <!-- <Header /> -->
+    <Header />
     <slot />
     <Footer />
     <Credits />
-    <!--
-     -->
   </body>
 </html>
 
@@ -99,13 +97,6 @@ import Credits from "../components/Credits.astro";
     padding: 0;
     margin: 0;
   }
-
-  /*   .section-content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "content-1 content-2";
-    grid-column-gap: var(--section-grid-column-gap);
-  } */
 
   .section-content-grid {
     display: grid;
