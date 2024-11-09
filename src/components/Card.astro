@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 //const imgImport = img();
 ---
 
-<div class="card">
+<article class="card">
   <Image
     class="corridor-img"
     src="https://picsum.photos/300/200"
@@ -16,21 +16,19 @@ import { Image } from "astro:assets";
   <p>
     {body}
   </p>
-</div>
+</article>
 
 <style>
-  .card > p {
-    font-weight: var(--font-weight-3);
-    color: white;
-    text-align: center;
-  }
-
   .card {
     width: 15rem;
   }
 
-  .card img {
+  .card > p {
+    color: white;
+    text-align: center;
+  }
+
+  .card > img {
     width: 100%;
-    margin-bottom: var(--size-3);
   }
 </style>

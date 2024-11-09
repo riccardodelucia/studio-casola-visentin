@@ -1,97 +1,183 @@
 ---
-
+import MenuButton from "./MenuButton.astro";
 ---
 
 <header id="header">
-  <div class="container header-container">
-    <span class="header-logo">Studio Casola Visentin</span>
-    <nav>
-      <ul class="header-links">
-        <li><a class="header-link" href="#about-us">Chi Siamo</a></li>
-        <li><a class="header-link" href="#services">Servizi</a></li>
-        <li><a class="header-link" href="#contacts">Contatti</a></li>
+  <div class="container">
+    <a class="header-link header-logo" data-id="hero" href="#hero">
+      Studio Casola Visentin
+    </a>
+    <nav class="header-nav">
+      <ul class="list-reset">
+        <li>
+          <a
+            class="header-link header-navlink"
+            data-id="about-us"
+            href="#about-us">Chi Siamo</a
+          >
+        </li>
+        <li>
+          <a
+            class="header-link header-navlink"
+            data-id="services"
+            href="#services">Servizi</a
+          >
+        </li>
+        <li>
+          <a
+            class="header-link header-navlink"
+            data-id="contacts"
+            href="#contacts">Contatti</a
+          >
+        </li>
       </ul>
     </nav>
+    <MenuButton />
   </div>
 </header>
 
+<script>
+  const header = document.querySelector("#header");
+
+  const headerHeight = header?.getBoundingClientRect().height || 0;
+
+  const scrollIntoViewWithOffset = (selection, offset = 0) => {
+    window.scrollTo({
+      behavior: "smooth",
+      top:
+        selection.getBoundingClientRect().top -
+        document.body.getBoundingClientRect().top -
+        offset,
+    });
+    selection.focus();
+  };
+
+  const setupSmoothScroll = (id) => {
+    const link = document.querySelector(`a[data-id='${id}']`);
+    const section = document.querySelector(`#${id}`);
+
+    // Improve accessibility: make the element focusable when scrolled to.
+    // Remove tab focus capability to just focus upon click from eventListeners
+    section?.setAttribute("tabindex", "-1"); // make the element focusable
+    section?.removeAttribute("tabindex");
+
+    link?.addEventListener("click", (event) => {
+      event.preventDefault();
+      scrollIntoViewWithOffset(section, headerHeight - 1); // -5 to fire the animation slightly before reaching the target
+    });
+  };
+
+  setupSmoothScroll("hero");
+  setupSmoothScroll("about-us");
+  setupSmoothScroll("services");
+  setupSmoothScroll("contacts");
+
+  const links = document.querySelectorAll(".header-navlink");
+  const headerNav = document.querySelector(".header-nav");
+
+  links.forEach((link) => {
+    const closeMenu = () => {
+      const size = window.innerWidth;
+      if (size <= 770) {
+        headerNav?.style.setProperty("visibility", "hidden");
+      }
+    };
+    // when links are clicked on small sizes (menu active), the menu should be closed
+    link.addEventListener("click", closeMenu);
+  });
+
+  // force visibility of nav links when screen is resized to width>770px
+  addEventListener("resize", (event) => {
+    const size = window.innerWidth;
+    if (size > 770) {
+      headerNav?.style.setProperty("visibility", "visible");
+    }
+  });
+</script>
+
 <style>
-  a {
-    text-decoration: none;
-    color: inherit;
+  .header-logo {
+    font-weight: 600;
   }
 
-  header {
-    color: var(--gray-1);
+  #header {
+    --header-background-top: var(--color-blue-light);
+    --header-background-scrolled: rgba(245, 245, 245, 0.95);
+    --header-color-top: var(--text-color-white);
+    --header-color-scrolled: var(--text-color-heading);
+
+    --header-background: var(--header-background-top);
+    --header-color: var(--header-color-top);
+
+    color: var(--header-color);
     position: sticky;
     top: 0;
-    background-color: var(--blue-10);
+    background-color: var(--header-background);
     transition: background-color 0.5s ease;
   }
 
-  .header-container {
-    height: 5rem;
-    padding-block: var(--size-2);
+  #header > div {
+    padding-block: var(--size-4);
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
     gap: var(--size-5);
   }
 
-  .header-blurred {
-    background-color: rgba(245, 245, 245, 0.95);
-    color: var(--gray-9);
+  @media (min-width: 770px) {
+    #header > div {
+      grid-template-columns: 1fr 2fr 1fr;
+    }
   }
 
-  .header-blurred .header-link {
-    color: var(--gray-7);
-  }
-
-  .header-blurred .header-link:hover {
-    border-bottom: 2px solid var(--gray-7);
-  }
-
-  .header-links {
-    list-style: none;
-    display: flex;
-    padding: 0;
+  .header-nav {
     margin-inline: auto;
-    width: fit-content;
-    gap: var(--size-8);
-    color: var(--gray-1);
+    padding-block: 0;
+    border: 0;
+    visibility: visible;
+  }
+
+  .header-nav > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: var(--size-6);
+    align-items: center;
+    justify-items: center;
+  }
+
+  @media (max-width: 770px) {
+    .header-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      visibility: hidden;
+      background-color: var(--header-background);
+      transition: background-color 0.5s ease;
+    }
+
+    .header-nav > ul {
+      grid-template-columns: 1fr;
+      grid-row-gap: var(--size-4);
+      padding-block: var(--size-4);
+      border-top: 1px solid var(--header-color);
+    }
   }
 
   .header-link {
-    --underline: 1px solid;
     color: inherit;
-    display: block;
-    padding: 0.1em;
-    border-bottom: 2px solid transparent;
-    transition: border-color 200ms ease-in;
+    cursor: pointer;
+    text-decoration: none;
+    width: max-content;
   }
 
-  .header-link:hover {
-    border-bottom: 2px solid var(--gray-1);
+  .header-navlink {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 200ms ease-in;
+    padding-bottom: var(--size-1);
   }
 
-  .header-logo {
-    font-weight: 600;
-    margin-right: auto;
-  }
-
-  .contact-link {
-    justify-self: end;
-    display: grid;
-    grid-template-columns: 25px 1fr;
-    grid-column-gap: var(--size-2);
-    padding-block: 1em;
-    padding-inline: 2em;
-    background-color: var(--green-9);
-    border-radius: var(--radius-3);
-    color: white;
-    transition: background-color 200ms ease-in;
-  }
-  .contact-link:hover {
-    background-color: var(--green-10);
+  .header-navlink:hover {
+    border-bottom: 1px solid var(--header-color);
   }
 </style>

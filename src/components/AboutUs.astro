@@ -3,10 +3,10 @@ import { Image } from "astro:assets";
 import corridorImg from "../assets/images/corridor.jpg";
 ---
 
-<section id="about-us" class="section-standard">
+<section id="about-us" aria-labelledby="heading-about-us">
   <div class="container about-us-grid">
     <div class="about-us">
-      <h2>Chi siamo</h2>
+      <h2 id="heading-about-us">Chi siamo</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet
         temporibus repellat odio fugiat sed possimus similique, aut laudantium
@@ -23,18 +23,36 @@ import corridorImg from "../assets/images/corridor.jpg";
 </section>
 
 <style>
-  #about-us {
-    align-self: center;
-    scroll-behavior: smooth;
+  .about-us-grid {
+    display: grid;
+    grid-row-gap: var(--size-5);
+    grid-template-areas:
+      "about-us"
+      "image";
+  }
+
+  @media (min-width: 580px) {
+    .about-us-grid {
+      grid-template-areas: "about-us image";
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: var(--section-grid-column-gap);
+    }
+
+    .corridor-img {
+      max-width: 20rem;
+    }
   }
 
   .corridor-img {
-    border-radius: var(--radius-2);
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+    justify-self: center;
+    grid-area: image;
   }
-
-  .about-us-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-column-gap: var(--size-12);
+  .about-us {
+    align-self: center;
+    text-align: justify;
+    grid-area: about-us;
   }
 </style>

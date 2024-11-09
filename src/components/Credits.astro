@@ -1,0 +1,46 @@
+---
+import feather from "feather-icons";
+
+const icon = feather.icons.github.toSvg();
+---
+
+<section class="credits">
+  <p>
+    <small>
+      Sito web realizzato da Riccardo De Lucia
+      <a href="https://github.com/riccardodelucia"
+        ><Fragment set:html={icon} />
+      </a>
+    </small>
+  </p>
+</section>
+
+<style>
+  .credits {
+    padding-block: var(--size-1);
+    padding-inline: var(--size-2);
+    background-color: black;
+    color: white;
+    font-size: var(--font-size-0);
+  }
+
+  .credits p,
+  .credits small {
+    min-width: 100%;
+    color: inherit;
+  }
+
+  .credits small {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-align-icons);
+  }
+
+  .credits a {
+    color: inherit;
+    margin: 0;
+    padding: 5px;
+  }
+</style>

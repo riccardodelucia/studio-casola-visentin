@@ -3,6 +3,7 @@ const { title } = Astro.props;
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Credits from "../components/Credits.astro";
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import Footer from "../components/Footer.astro";
     <Header />
     <slot />
     <Footer />
+    <Credits />
   </body>
 </html>
 
@@ -26,24 +28,57 @@ import Footer from "../components/Footer.astro";
   @import "open-props/postcss/style";
   @import "open-props/postcss/normalize";
 
+  * {
+    --text-color-heading: var(--gray-7);
+    --text-color-body: var(--gray-6);
+    --text-color-white: var(--gray-1);
+    --padding-inline: var(--2em);
+    --max-content-width: 80rem;
+    --heading-font-weight: var(--font-weight-4);
+    --heading-font-family: var(--font-neo-grotesque);
+
+    --section-grid-column-gap: var(--size-7);
+
+    --below-heading-margin: 1em;
+    --content-font-size: var(--font-size-1);
+
+    --color-blue-light: var(--blue-10);
+    --color-blue-dark: var(--blue-11);
+
+    --color-green-light: var(--green-9);
+    --color-green-dark: var(--green-10);
+
+    --gap-align-icons: var(--size-2);
+
+    --border-radius: var(--radius-3);
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-weight: var(--font-weight-4);
-    color: var(--gray-7);
-    font-family: var(--font-neo-grotesque);
+    font-weight: var(--heading-font-weight);
+    color: var(--text-color-heading);
+    font-family: var(--heading-font-family);
   }
 
-  h1 + p,
-  h2 + p,
-  h3 + p,
-  h4 + p,
-  h5 + p,
-  h6 + p {
-    margin-top: 1em;
+  p {
+    color: var(--text-color-body);
+  }
+
+  h1 + *,
+  h2 + *,
+  h3 + *,
+  h4 + *,
+  h5 + *,
+  h6 + * {
+    margin-top: var(--below-heading-margin);
+  }
+
+  section {
+    padding-block: var(--size-7);
   }
 
   .container {
@@ -52,16 +87,30 @@ import Footer from "../components/Footer.astro";
     margin-inline: auto;
   }
 
-  p {
-    color: var(--gray-6);
+  .list-reset {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  .section-standard {
-    margin-top: var(--size-10);
-    margin-bottom: var(--size-8);
+  .list-reset > li {
+    padding: 0;
+    margin: 0;
   }
 
-  .section-standard h2 {
-    margin-bottom: var(--size-6);
+  .section-content-grid {
+    display: grid;
+    grid-column-gap: var(--section-grid-column-gap);
+  }
+
+  .visibly-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
   }
 </style>
