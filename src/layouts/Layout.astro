@@ -29,8 +29,8 @@ import Credits from "../components/Credits.astro";
   @import "open-props/postcss/normalize";
 
   * {
-    --text-color-heading: var(--gray-7);
-    --text-color-body: var(--gray-6);
+    --text-color-heading: var(--gray-8);
+    --text-color-body: var(--gray-7);
     --text-color-white: var(--gray-1);
     --padding-inline: var(--2em);
     --max-content-width: 80rem;
@@ -39,7 +39,7 @@ import Credits from "../components/Credits.astro";
 
     --section-grid-column-gap: var(--size-7);
 
-    --below-heading-margin: 1em;
+    --below-heading-margin: 1rem;
     --content-font-size: var(--font-size-1);
 
     --color-blue-light: var(--blue-10);
@@ -50,7 +50,7 @@ import Credits from "../components/Credits.astro";
 
     --gap-align-icons: var(--size-2);
 
-    --border-radius: var(--radius-3);
+    --border-radius: var(--radius-2);
   }
 
   h1,
@@ -66,15 +66,7 @@ import Credits from "../components/Credits.astro";
 
   p {
     color: var(--text-color-body);
-  }
-
-  h1 + *,
-  h2 + *,
-  h3 + *,
-  h4 + *,
-  h5 + *,
-  h6 + * {
-    margin-top: var(--below-heading-margin);
+    margin-top: 1rem;
   }
 
   section {
