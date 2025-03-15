@@ -5,13 +5,6 @@ import { Image } from "astro:assets";
 ---
 
 <article class="card">
-  <Image
-    class="corridor-img"
-    src="https://picsum.photos/300/200"
-    alt="Corridoio Studio Casola Visentin"
-    width="300"
-    height="200"
-  />
   <div class="card-content">
     <h2>{title}</h2>
     <slot />
@@ -20,9 +13,8 @@ import { Image } from "astro:assets";
 
 <style>
   .card {
-    /* width: 20rem; */
     border-radius: var(--border-radius);
-    background-color: var(--blue-12);
+    background-color: rgba(13, 55, 94, 0.73);
     padding-bottom: 2rem;
     overflow: hidden;
   }
