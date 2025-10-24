@@ -13,7 +13,7 @@ const icon = feather.icons[iconType].toSvg();
 ---
 
 <a href={href} class="contacts-link" data-color=`${color}`>
-  <span class="visibly-hidden">{ariaDescription}</span>
+  <span class="visibility-hidden">{ariaDescription}</span>
   <Fragment set:html={icon} />
   {content}
 </a>

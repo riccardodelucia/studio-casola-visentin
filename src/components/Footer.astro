@@ -1,16 +1,20 @@
+---
+import { address, phone, email, piva } from "../vars.js";
+---
+
 <footer class="page-footer">
   <div class="container footer-container">
     <h2>Studio Casola Visentin</h2>
-    <address>Località Croix Noire 61, Saint-christophe, AO 11020</address>
-    <a href="tel:+39 0165 267198">
-      <span class="visibly-hidden">Numero di telefono +39 0165 267198</span>
-      +39 0165 267198
+    <address>{address}</address>
+    <a href=`tel:${phone}`>
+      <span class="visibility-hidden">Numero di telefono: {phone}</span>
+      {phone}
     </a> |
-    <a href="mailto:info@studiocasolavisentin.it">
-      <span class="visibly-hidden"> Indirizzo di posta elettronica </span>
-      info@studiocasolavisentin.it
+    <a href=`mailto:${email}`>
+      <span class="visibility-hidden"> Indirizzo di posta elettronica </span>
+      {email}
     </a>
-    <p class="footer-vat-code">P.IVA: 01088020076</p>
+    <p class="footer-vat-code">P.IVA: {piva}</p>
   </div>
 </footer>
 

@@ -3,24 +3,25 @@ import feather from "feather-icons";
 
 import ContactsLink from "../components/ContactsLink.astro";
 
+import { address, email, phone } from "../vars.js";
+
 const mapIcon = feather.icons.map.toSvg();
 const mapClock = feather.icons.clock.toSvg();
 
 const links = {
   phone: {
     iconType: "phone",
-    content: "+39 0165 267198",
+    content: phone,
     color: "blue",
-    href: "tel:+39 0165 267198",
-    ariaDescription: "Numero di telefono +39 0165 267198",
+    href: `tel:${phone}`,
+    ariaDescription: `Numero di telefono: ${phone}`,
   },
   mail: {
     iconType: "mail",
-    content: "info@studiocasolavisentin.it",
+    content: email,
     color: "green",
-    href: "mailto:info@studiocasolavisentin.it",
-    ariaDescription:
-      "Indirizzo di posta elettronica info@studiocasolavisentin.it",
+    href: `mailto:${email}`,
+    ariaDescription: `Indirizzo di posta elettronica: ${email}`,
   },
 };
 ---
@@ -51,12 +52,11 @@ const links = {
         <h3 class="contacts-h3">
           <Fragment set:html={mapIcon} /> Dove Siamo
         </h3>
-        <address>Località Croix Noire 61, Saint-christophe, AO 11020</address>
+        <address>{address}</address>
         <iframe
-          class="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89104.91164014465!2d7.213734697265624!3d45.74054999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4788df4df04284ad%3A0x4f606dddc0e97e3b!2sCe.da.co%20srl!5e0!3m2!1sit!2sit!4v1730890177130!5m2!1sit!2sit"
-          width="300"
-          height="300"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.676065521506!2d7.351077076331064!3d45.73759081515604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4788dfdb7b2269ad%3A0xd33d5ee6b4426e40!2sStudio%20Casola%20Visentin!5e0!3m2!1sit!2sit!4v1761298102467!5m2!1sit!2sit"
+          width="500"
+          height="350"
           style="border:0;"
           allowfullscreen=""
           loading="lazy"

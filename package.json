@@ -11,6 +11,7 @@
     "format": "prettier -w ."
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
     "astro": "^4.16.6",
     "feather-icons": "^4.29.2",
     "open-props": "^1.7.7"
